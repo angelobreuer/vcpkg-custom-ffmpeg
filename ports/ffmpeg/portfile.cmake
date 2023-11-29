@@ -1,8 +1,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO ffmpeg/ffmpeg
-    REF "n${VERSION}"
-    SHA512 abb9207364553248278f8e23e3d565da51ecb0ae9b20edda41624b314541bc3f53a8d6aac7fa5455168d2323d5d70d5a8acbe059f33423fbc2563e1a6cd0348b
+    REPO angelobreuer/FFmpeg
+    REF master
+    SHA512 83d07cb61dcd94f73640aee039c3fb0b87a97a4f632fb6b115efffa9a464c5876f45dab3b415ccffb4fa56f755a14975fab3c6c9a7e8709a9261f082345dc2b1
     HEAD_REF master
     PATCHES
         0001-create-lib-libraries.patch
@@ -159,13 +159,8 @@ file(REMOVE_RECURSE "${CURRENT_BUILDTREES_DIR}/${TARGET_TRIPLET}-dbg" "${CURRENT
 
 set(FFMPEG_PKGCONFIG_MODULES libavutil)
 
-if("nonfree" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-nonfree")
-endif()
-
-if("gpl" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-gpl")
-endif()
 
 if("version3" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-version3")
@@ -269,11 +264,7 @@ else()
     set(OPTIONS "${OPTIONS} --disable-amf")
 endif()
 
-if("aom" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libaom")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libaom")
-endif()
 
 if("ass" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libass")
@@ -372,11 +363,7 @@ else()
     set(OPTIONS "${OPTIONS} --disable-opengl")
 endif()
 
-if("openh264" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libopenh264")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libopenh264")
-endif()
 
 if("openjpeg" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libopenjpeg")
@@ -401,11 +388,7 @@ else()
     endif()
 endif()
 
-if("opus" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libopus")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libopus")
-endif()
 
 if("sdl2" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-sdl2")
@@ -419,17 +402,9 @@ else()
     set(OPTIONS "${OPTIONS} --disable-libsnappy")
 endif()
 
-if("soxr" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libsoxr")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libsoxr")
-endif()
 
-if("speex" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libspeex")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libspeex")
-endif()
 
 if("ssh" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libssh")
@@ -455,35 +430,15 @@ else()
     set(OPTIONS "${OPTIONS} --disable-libtheora")
 endif()
 
-if("vorbis" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libvorbis")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libvorbis")
-endif()
 
-if("vpx" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libvpx")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libvpx")
-endif()
 
-if("webp" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libwebp")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libwebp")
-endif()
+    
+#    set(OPTIONS "${OPTIONS} --enable-libx264")
 
-if("x264" IN_LIST FEATURES)
-    set(OPTIONS "${OPTIONS} --enable-libx264")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libx264")
-endif()
-
-if("x265" IN_LIST FEATURES)
-    set(OPTIONS "${OPTIONS} --enable-libx265")
-else()
-    set(OPTIONS "${OPTIONS} --disable-libx265")
-endif()
+#    set(OPTIONS "${OPTIONS} --enable-libx265")
 
 if("xml2" IN_LIST FEATURES)
     set(OPTIONS "${OPTIONS} --enable-libxml2")
