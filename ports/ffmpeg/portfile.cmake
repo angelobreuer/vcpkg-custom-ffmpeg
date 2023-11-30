@@ -31,7 +31,7 @@ if(NOT VCPKG_TARGET_ARCHITECTURE STREQUAL "wasm32")
     vcpkg_add_to_path("${NASM_EXE_PATH}")
 endif()
 
-set(OPTIONS "--enable-pic --disable-doc --enable-debug --enable-runtime-cpudetect --disable-autodetect")
+set(OPTIONS "--enable-pic --disable-asm --disable-doc --enable-debug --enable-runtime-cpudetect --disable-autodetect")
 
 if(VCPKG_HOST_IS_WINDOWS)
     vcpkg_acquire_msys(MSYS_ROOT PACKAGES automake1.16)
