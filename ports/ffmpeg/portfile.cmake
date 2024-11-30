@@ -2,7 +2,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO angelobreuer/FFmpeg
     REF master
-    SHA512 d2abc19545f86f3f578001eafa1515eb36b6e26c682e7b80203d9e99fcde601f840d301e264d7f32c37f1053d004a77cfd6ff6f1e6f42d4590a633812354d59f
+    SHA512 7e2b3ce0bd395d0e1fd99fd3622f99eea61d63ed10cba1d86be98c2533246b27c3f916ff299181fa8bb3fee24b86e9f47d2e1fbfe1e1d09e8881038fb9365949
     HEAD_REF master
     PATCHES
         0001-create-lib-libraries.patch
